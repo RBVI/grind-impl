@@ -42,6 +42,16 @@ public class GrindRenderer {
 	}
 
 	private void renderLoop() {
+		// The list of GrindNodeViews is available
+		// using view.getGrindNodeViews(), or (optionally)
+		// view.getGrindNodeViews(Rectangle2D boundingBox).  The latter is
+		// actually for future uses and at this point just returns all nodes.
+		//
+		// Similarly to get all edge views, you would use view.getGrindEdgeViews().
+		// GrindGraphView, GrindNodeView, and GrindEdgeView all implement the View
+		// interface, so it's straightforward to get the various visual properties.
+		// In the longer term, complicated visual properties (e.g. NODE_LABEL_POSITION) should
+		// be calculated and cached in the appropriate view.
 		if (view.updateNeeded()) {
 			// Render
 

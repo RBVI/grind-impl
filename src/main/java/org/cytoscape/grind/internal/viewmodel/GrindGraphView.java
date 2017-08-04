@@ -1,6 +1,7 @@
 package org.cytoscape.grind.viewmodel;
 
 import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 import java.awt.Image;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
@@ -86,6 +87,7 @@ public class GrindGraphView extends AbstractGrindViewModel<CyNetwork>
 	 */
 	private final Map<CyNode, GrindNodeView> nodeViewMap;
 	private final Map<CyEdge, GrindEdgeView> edgeViewMap;
+	@SuppressWarnings("rawtypes")
 	private final Map<VisualProperty, Object> defaultMap;
 
 	// private final Map<VisualProperty, Object> propertyMap;
@@ -100,6 +102,7 @@ public class GrindGraphView extends AbstractGrindViewModel<CyNetwork>
 		this(view.getModel(), grindLexicon, registrar);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public GrindGraphView(
 			final CyNetwork model,
 			final GrindVisualLexicon grindLexicon,
@@ -450,6 +453,22 @@ public class GrindGraphView extends AbstractGrindViewModel<CyNetwork>
   @Override
   public int print(Graphics g, PageFormat pageFormat, int page) {
 		return 0;
+	}
+
+	// Internal interface //
+	public Collection<GrindNodeView> getGrindNodeViews() {
+		return nodeViewMap.values();
+	}
+
+	public Collection<GrindEdgeView> getGrindEdgeViews() {
+		return edgeViewMap.values();
+	}
+
+	// This is for future use.  Given a bounding rectangle, return all of the nodes
+	// within that rectangle.  At this point, we return all nodes, but in the future,
+	// we might have a need for a QuadTree or OctTree
+	public Collection<GrindNodeView> getGrindNodeViews(Rectangle2D boundingBox) {
+		return getGrindNodeViews();
 	}
 
 }
