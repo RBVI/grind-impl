@@ -24,6 +24,10 @@ package org.cytoscape.grind.renderer;
  * #L%
  */
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import static java.util.concurrent.TimeUnit.*;
+
 import org.cytoscape.service.util.CyServiceRegistrar;
 
 import org.cytoscape.grind.viewmodel.GrindGraphView;
@@ -31,6 +35,8 @@ import org.cytoscape.grind.viewmodel.GrindGraphView;
 public class GrindRenderer {
 	protected final GrindGraphView view;
 	final CyServiceRegistrar registrar;
+	static double FRAME_RATE = 1000000.0/60.0; // Frame rate (in us)
+	private ScheduledExecutorService loopScheduler;
 
 	public GrindRenderer(GrindGraphView view, CyServiceRegistrar registrar) {
 		this.view = view;
@@ -39,6 +45,22 @@ public class GrindRenderer {
 		// Create the necessary drawing surfaces
 
 		// Start the rendering engine.  
+		startLoop();
+	}
+
+	private void startLoop() {
+		loopScheduler = Executors.newScheduledThreadPool(1);
+		Runnable innerLoop = new Runnable() {
+			public void run() {
+				renderLoop();
+			}
+		};
+		loopScheduler.scheduleAtFixedRate(innerLoop, 0, (long)FRAME_RATE, MICROSECONDS);
+	}
+
+	private void stopLoop() {
+		if (loopScheduler != null)
+			loopScheduler.shutdown();
 	}
 
 	private void renderLoop() {
