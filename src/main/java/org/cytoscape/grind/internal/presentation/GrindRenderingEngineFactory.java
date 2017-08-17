@@ -1,6 +1,4 @@
-package org.cytoscape.grind.presentation;
-
-import java.awt.BorderLayout;
+package org.cytoscape.grind.internal.presentation;
 
 import javax.swing.JComponent;
 import javax.swing.RootPaneContainer;
@@ -12,10 +10,9 @@ import org.cytoscape.view.model.View;
 import org.cytoscape.view.model.VisualLexicon;
 import org.cytoscape.view.presentation.RenderingEngine;
 import org.cytoscape.view.presentation.RenderingEngineFactory;
-import org.cytoscape.view.presentation.property.values.HandleFactory;
 
-import org.cytoscape.grind.viewmodel.GrindGraphView;
-import org.cytoscape.grind.viewmodel.GrindVisualLexicon;
+import org.cytoscape.grind.internal.viewmodel.GrindGraphView;
+import org.cytoscape.grind.internal.viewmodel.GrindVisualLexicon;
 
 /*
  * #%L

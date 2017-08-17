@@ -1,4 +1,4 @@
-package org.cytoscape.grind;
+package org.cytoscape.grind.internal;
 
 import static org.cytoscape.work.ServiceProperties.ENABLE_FOR;
 import static org.cytoscape.work.ServiceProperties.ID;
@@ -29,11 +29,11 @@ import org.cytoscape.view.model.VisualLexicon;
 import org.osgi.framework.BundleContext;
 
 // import org.cytoscape.grind.presentation.GrindNavigationRenderingEngineFactory;
-import org.cytoscape.grind.presentation.GrindRenderingEngine;
-import org.cytoscape.grind.presentation.GrindRenderingEngineFactory;
+import org.cytoscape.grind.internal.presentation.GrindRenderingEngine;
+import org.cytoscape.grind.internal.presentation.GrindRenderingEngineFactory;
 // import org.cytoscape.grind.presentation.GrindThumbnailRenderingEngineFactory;
-import org.cytoscape.grind.viewmodel.GrindViewModelFactory;
-import org.cytoscape.grind.viewmodel.GrindVisualLexicon;
+import org.cytoscape.grind.internal.viewmodel.GrindViewModelFactory;
+import org.cytoscape.grind.internal.viewmodel.GrindVisualLexicon;
 
 
 /*
@@ -85,8 +85,8 @@ public class CyActivator extends AbstractCyActivator {
 						new GrindRenderingEngineFactory(gVisualLexicon, serviceRegistrar);
 
 		Properties grindRenderingEngineFactoryProps = new Properties();
-    grindRenderingEngineFactoryProps.setProperty(ID, "grind");
-    registerAllServices(bc, grindRenderingEngineFactory, grindRenderingEngineFactoryProps);
+		grindRenderingEngineFactoryProps.setProperty(ID, "grind");
+		registerAllServices(bc, grindRenderingEngineFactory, grindRenderingEngineFactoryProps);
 
 
 		GrindRenderingEngine renderingEngine = GrindRenderingEngine.getInstance();

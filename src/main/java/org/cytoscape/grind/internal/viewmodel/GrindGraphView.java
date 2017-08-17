@@ -1,4 +1,4 @@
-package org.cytoscape.grind.viewmodel;
+package org.cytoscape.grind.internal.viewmodel;
 
 import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
@@ -33,7 +33,7 @@ import org.cytoscape.view.presentation.RenderingEngine;
 import org.cytoscape.view.presentation.property.BasicVisualLexicon;
 import org.cytoscape.view.presentation.property.values.ObjectPosition;
 
-import org.cytoscape.grind.presentation.GrindRenderingEngine;
+import org.cytoscape.grind.internal.presentation.GrindRenderingEngine;
 
 /*
  * #%L

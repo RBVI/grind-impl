@@ -1,4 +1,4 @@
-package org.cytoscape.grind.presentation;
+package org.cytoscape.grind.internal.presentation;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +10,7 @@ import org.cytoscape.view.presentation.RenderingEngineFactory;
 
 public class GrindRenderingEngine implements NetworkViewRenderer {
 	public static final String ID = "org.cytoscape.grind";
-  public static final String DISPLAY_NAME = "Cytoscape Grind 2D";
+    public static final String DISPLAY_NAME = "Cytoscape Grind 2D";
 
 	private CyNetworkViewFactory viewFactory;
 	private Map<String, RenderingEngineFactory<CyNetwork>> renderingEngineFactories;

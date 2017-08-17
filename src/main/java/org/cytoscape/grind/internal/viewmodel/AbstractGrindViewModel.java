@@ -1,4 +1,4 @@
-package org.cytoscape.grind.viewmodel;
+package org.cytoscape.grind.internal.viewmodel;
 
 import java.awt.Color;
 import java.awt.Paint;

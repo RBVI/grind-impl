@@ -1,4 +1,4 @@
-package org.cytoscape.grind.viewmodel;
+package org.cytoscape.grind.internal.viewmodel;
 
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.service.util.CyServiceRegistrar;

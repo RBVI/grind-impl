@@ -1,4 +1,4 @@
-package org.cytoscape.grind.renderer;
+package org.cytoscape.grind.internal.renderer;
 
 /*
  * #%L
@@ -30,7 +30,7 @@ import static java.util.concurrent.TimeUnit.*;
 
 import org.cytoscape.service.util.CyServiceRegistrar;
 
-import org.cytoscape.grind.viewmodel.GrindGraphView;
+import org.cytoscape.grind.internal.viewmodel.GrindGraphView;
 
 public class GrindRenderer {
 	protected final GrindGraphView view;

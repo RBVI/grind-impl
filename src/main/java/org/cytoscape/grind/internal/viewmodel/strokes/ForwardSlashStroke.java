@@ -1,4 +1,4 @@
-package org.cytoscape.grind.viewmodel.strokes;
+package org.cytoscape.grind.internal.viewmodel.strokes;
 
 /*
  * #%L
