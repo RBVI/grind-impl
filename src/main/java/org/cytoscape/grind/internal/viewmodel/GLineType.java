@@ -1,4 +1,4 @@
-package org.cytoscape.grind.viewmodel;
+package org.cytoscape.grind.internal.viewmodel;
 
 /*
  * #%L
@@ -28,13 +28,13 @@ import java.awt.Stroke;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.cytoscape.grind.viewmodel.strokes.DashDotStroke;
-import org.cytoscape.grind.viewmodel.strokes.DotStroke;
-import org.cytoscape.grind.viewmodel.strokes.EqualDashStroke;
-import org.cytoscape.grind.viewmodel.strokes.LongDashStroke;
-import org.cytoscape.grind.viewmodel.strokes.SolidStroke;
-import org.cytoscape.grind.viewmodel.strokes.WidthStroke;
-import org.cytoscape.grind.viewmodel.strokes.ZeroStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.DashDotStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.DotStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.EqualDashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.LongDashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.SolidStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.WidthStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.ZeroStroke;
 import org.cytoscape.view.presentation.property.LineTypeVisualProperty;
 import org.cytoscape.view.presentation.property.values.LineType;
 

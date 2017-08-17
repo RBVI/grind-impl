@@ -1,4 +1,4 @@
-package org.cytoscape.grind.visualproperty;
+package org.cytoscape.grind.internal.visualproperty;
 
 /*
  * #%L

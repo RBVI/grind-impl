@@ -1,4 +1,4 @@
-package org.cytoscape.grind.viewmodel;
+package org.cytoscape.grind.internal.viewmodel;
 
 import java.awt.Color;
 import java.awt.Paint;
@@ -26,20 +26,20 @@ import org.cytoscape.view.presentation.property.values.LineType;
 import org.cytoscape.view.presentation.property.values.NodeShape;
 import org.cytoscape.view.presentation.property.values.ObjectPosition;
 
-import org.cytoscape.grind.viewmodel.strokes.AnimatedDashDotStroke;
-import org.cytoscape.grind.viewmodel.strokes.AnimatedEqualDashStroke;
-import org.cytoscape.grind.viewmodel.strokes.AnimatedLongDashStroke;
-import org.cytoscape.grind.viewmodel.strokes.BackwardSlashStroke;
-import org.cytoscape.grind.viewmodel.strokes.ContiguousArrowStroke;
-import org.cytoscape.grind.viewmodel.strokes.ForwardSlashStroke;
-import org.cytoscape.grind.viewmodel.strokes.ParallelStroke;
-import org.cytoscape.grind.viewmodel.strokes.PipeStroke;
-import org.cytoscape.grind.viewmodel.strokes.SeparateArrowStroke;
-import org.cytoscape.grind.viewmodel.strokes.SineWaveStroke;
-import org.cytoscape.grind.viewmodel.strokes.VerticalSlashStroke;
-import org.cytoscape.grind.viewmodel.strokes.ZigzagStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.AnimatedDashDotStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.AnimatedEqualDashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.AnimatedLongDashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.BackwardSlashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.ContiguousArrowStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.ForwardSlashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.ParallelStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.PipeStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.SeparateArrowStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.SineWaveStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.VerticalSlashStroke;
+import org.cytoscape.grind.internal.viewmodel.strokes.ZigzagStroke;
 
-import org.cytoscape.grind.visualproperty.ObjectPositionVisualProperty;
+import org.cytoscape.grind.internal.visualproperty.ObjectPositionVisualProperty;
 
 /*
  * #%L
