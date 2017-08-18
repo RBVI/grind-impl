@@ -1,6 +1,7 @@
 package org.cytoscape.grind.internal.presentation;
 
 import javax.swing.JComponent;
+import javax.swing.JInternalFrame;
 import javax.swing.RootPaneContainer;
 
 import org.cytoscape.model.CyNetwork;
@@ -13,6 +14,9 @@ import org.cytoscape.view.presentation.RenderingEngineFactory;
 
 import org.cytoscape.grind.internal.viewmodel.GrindGraphView;
 import org.cytoscape.grind.internal.viewmodel.GrindVisualLexicon;
+import org.cytoscape.grind.internal.renderer.GrindRenderer;
+import org.cytoscape.grind.internal.renderer.pmViewport;
+
 
 /*
  * #%L
@@ -43,6 +47,10 @@ public class GrindRenderingEngineFactory implements RenderingEngineFactory<CyNet
 	private final GrindVisualLexicon grindLexicon;
 	// private final AnnotationFactoryManager annMgr;
 	private final CyServiceRegistrar registrar;
+	
+//	private GrindRenderer renderer;
+	
+	private pmViewport viewport;
 	
 	// private ViewTaskFactoryListener vtfListener;
 	
@@ -96,8 +104,12 @@ public class GrindRenderingEngineFactory implements RenderingEngineFactory<CyNet
 			
 			if (presentationContainer instanceof RootPaneContainer) {
 				final RootPaneContainer container = (RootPaneContainer) presentationContainer;
-				// final InternalFrameComponent ifComp = new InternalFrameComponent(container.getLayeredPane(), dgv);
-				// container.setContentPane(ifComp);
+//				 final InternalFrameComponent ifComp = new InternalFrameComponent(container.getLayeredPane(), dgv);
+//				 container.setContentPane(ifComp);
+				final JInternalFrame iframe = new JInternalFrame("meow", true, true, true, true);
+				container.setContentPane(iframe);
+				iframe.setVisible(true);
+				viewport = new pmViewport((JComponent)iframe, dgv, registrar);
 			} else {
 				final JComponent component = (JComponent) presentationContainer;
 				// component.setLayout(new BorderLayout());
@@ -107,7 +119,7 @@ public class GrindRenderingEngineFactory implements RenderingEngineFactory<CyNet
 			throw new IllegalArgumentException(
 					"frame object is not of type JComponent or RootPaneContainer, which is invalid for this implementation of PresentationFactory");
 		}
-
+//		renderer = new GrindRenderer(dgv, registrar);
 		return dgv;
 	}
 

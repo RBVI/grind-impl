@@ -116,13 +116,27 @@
 			<groupId>org.cytoscape</groupId>
 			<artifactId>swing-application-api</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>PokeMeow-Renderer</groupId>
+			<artifactId>PokeMeow-Renderer</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- 3rd party library -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>23.0</version>
 		</dependency>
+		<dependency>
+      		<groupId>org.jogamp.gluegen</groupId>
+      		<artifactId>gluegen-rt-main</artifactId>
+      		<version>2.3.1</version>
+    	</dependency>
+    	<dependency>
+      		<groupId>org.jogamp.jogl</groupId>
+      		<artifactId>jogl-all-main</artifactId>
+      		<version>2.3.1</version>
+    	</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>

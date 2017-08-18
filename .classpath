@@ -22,5 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jogl"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/PokeMeow-Renderer"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
