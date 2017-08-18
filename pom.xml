@@ -13,7 +13,6 @@
 	<groupId>org.cytoscape</groupId>
 	<artifactId>grind</artifactId>
 	<packaging>bundle</packaging>
-
 	<name>Cytoscape Grind View/Presentation Impl (${project.artifactId})</name>
 
 	<version>0.0.9</version>
@@ -41,6 +40,9 @@
 						<Export-Package>!${bundle.namespace}.*</Export-Package>
 						<Private-Package>${bundle.namespace}.*</Private-Package>
 						<Bundle-Activator>${bundle.namespace}.CyActivator</Bundle-Activator>
+						<Embed-Dependency>*;scope=!provided</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Import-Package>*;resolution:=optional</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -52,7 +54,7 @@
 		<repository>
 			<id>cytoscape_snapshots</id>
 			<snapshots>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</snapshots>
 			<releases>
 				<enabled>false</enabled>
@@ -71,6 +73,13 @@
 			<name>Cytoscape Releases</name>
 			<url>http://code.cytoscape.org/nexus/content/repositories/releases/</url>
 		</repository>
+		<repository>
+			<id>apache-repo-releases</id>
+			<url>https://repository.apache.org/content/repositories/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -78,36 +87,49 @@
 			<groupId>org.cytoscape</groupId>
 			<artifactId>model-api</artifactId>
 			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.cytoscape</groupId>
-			<artifactId>viewmodel-api</artifactId>
+			<artifactId>application-api</artifactId>
 			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.cytoscape</groupId>
-			<artifactId>viewmodel-api</artifactId>
+			<artifactId>swing-application-api</artifactId>
 			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.cytoscape</groupId>
 			<artifactId>core-task-api</artifactId>
 			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.cytoscape</groupId>
-			<artifactId>work-api</artifactId>
+			<artifactId>viewmodel-api</artifactId>
 			<version>${cytoscape.api.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.cytoscape</groupId>
-			<artifactId>service-api</artifactId>
-			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.cytoscape</groupId>
 			<artifactId>presentation-api</artifactId>
 			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cytoscape</groupId>
+			<artifactId>work-api</artifactId>
+			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cytoscape</groupId>
+			<artifactId>service-api</artifactId>
+			<version>${cytoscape.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.logging</groupId>
@@ -119,16 +141,16 @@
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.core</artifactId>
 			<version>${osgi.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- 3rd party library -->
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>22.0</version>
-			<optional>true</optional>
-    </dependency>
-
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 </project>
