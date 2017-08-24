@@ -1,6 +1,8 @@
 package org.cytoscape.grind.internal.presentation;
 
+import java.awt.Color;
 import javax.swing.JComponent;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.RootPaneContainer;
 
@@ -14,7 +16,6 @@ import org.cytoscape.view.presentation.RenderingEngineFactory;
 
 import org.cytoscape.grind.internal.viewmodel.GrindGraphView;
 import org.cytoscape.grind.internal.viewmodel.GrindVisualLexicon;
-import org.cytoscape.grind.internal.renderer.GrindRenderer;
 import org.cytoscape.grind.internal.renderer.pmViewport;
 
 
@@ -27,36 +28,36 @@ import org.cytoscape.grind.internal.renderer.pmViewport;
  * Copyright (C) 2006 - 2016 The Cytoscape Consortium
  * %%
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as 
- * published by the Free Software Foundation, either version 2.1 of the 
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 2.1 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
- * You should have received a copy of the GNU General Lesser Public 
+ *
+ * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-2.1.html>.
  * #L%
  */
 
 public class GrindRenderingEngineFactory implements RenderingEngineFactory<CyNetwork> {
-	
+
 	private final GrindVisualLexicon grindLexicon;
 	// private final AnnotationFactoryManager annMgr;
 	private final CyServiceRegistrar registrar;
-	
+
 //	private GrindRenderer renderer;
-	
+
 	private pmViewport viewport;
-	
+
 	// private ViewTaskFactoryListener vtfListener;
-	
+
 	// private GrindGraphLOD dingGraphLOD;
-	
-	// private final HandleFactory handleFactory; 
+
+	// private final HandleFactory handleFactory;
 
 	public GrindRenderingEngineFactory(
 			final GrindVisualLexicon grindLexicon,
@@ -92,24 +93,33 @@ public class GrindRenderingEngineFactory implements RenderingEngineFactory<CyNet
 
 		final CyNetworkView targetView = (CyNetworkView) view;
 		GrindGraphView dgv = null;
-		
+
 		if (presentationContainer instanceof JComponent || presentationContainer instanceof RootPaneContainer) {
 			if (view instanceof GrindGraphView) {
-				dgv = (GrindGraphView) view;				
+				dgv = (GrindGraphView) view;
 			} else {
 				dgv = new GrindGraphView(targetView, grindLexicon, /*vtfListener, annMgr, dingGraphLOD, handleFactory,*/
 						registrar);
 				dgv.registerServices();
 			}
-			
+
 			if (presentationContainer instanceof RootPaneContainer) {
 				final RootPaneContainer container = (RootPaneContainer) presentationContainer;
-//				 final InternalFrameComponent ifComp = new InternalFrameComponent(container.getLayeredPane(), dgv);
-//				 container.setContentPane(ifComp);
-				final JInternalFrame iframe = new JInternalFrame("meow", true, true, true, true);
-				container.setContentPane(iframe);
-				iframe.setVisible(true);
-				viewport = new pmViewport((JComponent)iframe, dgv, registrar);
+				JDesktopPane jdpDesktop = new JDesktopPane();				
+				
+		        final JInternalFrame iframe = new JInternalFrame("pokeMeow", true, true, true, true);
+		        // without pack and setVisible, the frame isn't shown
+		        iframe.setSize(720, 480);
+		        iframe.setBackground(new Color(1.0f, .0f, .0f));
+		        iframe.setVisible(true);
+		        
+		        jdpDesktop.add(iframe);				
+//		        jdpDesktop.setBackground(new Color(.0f, .0f, 1.0f));//works
+				container.setContentPane(jdpDesktop);
+				jdpDesktop.putClientProperty("JDesktopPane.dragMode", "outline");
+				
+				viewport = new pmViewport(iframe, dgv, registrar);
+				container.getContentPane().setVisible(true);
 			} else {
 				final JComponent component = (JComponent) presentationContainer;
 				// component.setLayout(new BorderLayout());
@@ -119,12 +129,11 @@ public class GrindRenderingEngineFactory implements RenderingEngineFactory<CyNet
 			throw new IllegalArgumentException(
 					"frame object is not of type JComponent or RootPaneContainer, which is invalid for this implementation of PresentationFactory");
 		}
-//		renderer = new GrindRenderer(dgv, registrar);
 		return dgv;
 	}
 
 	@Override
 	public VisualLexicon getVisualLexicon() {
 		return grindLexicon;
-	}	
+	}
 }
